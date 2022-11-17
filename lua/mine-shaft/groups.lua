@@ -60,7 +60,7 @@ local function setup(configs)
     QuickFixLine = {link = 'CursorLine'},
     Search = {link = 'IncSearch'},
     SpecialKey = {link = 'Special', bold = true, italic = true},
-    SpellBad = {fg = colors.red, underline = true},
+    SpellBad = {italic = true, underline = true},
     SpellCap = {link = 'SpellBad'},
     SpellLocal = {link = 'SpellBad'},
     SpellRare = {link = 'SpellBad'},

@@ -1,8 +1,8 @@
-# Mine Shaft
+# ⛏️ Mine Shaft
 
 _An accessible color scheme for Neovim_
 
-## Color palette
+## 🎨 Color palette
 
 * Light text on a dark background.
 * [WCAG AAA compliant](https://www.w3.org/TR/WCAG/#visual-audio-contrast-contrast) for color contrast.
@@ -18,15 +18,15 @@ _An accessible color scheme for Neovim_
 | [Spring Wood](http://chir.ag/projects/name-that-color/#F8F8F2) | `#f8f8f2` | [13.28:1](https://webaim.org/resources/contrastchecker/?fcolor=F8F8F2&bcolor=2B2B2B) | AAA | AAA |
 | [Vivid Tangerine](http://chir.ag/projects/name-that-color/#FFA07A) | `#ffa07a` | [7.12:1](https://webaim.org/resources/contrastchecker/?fcolor=FFA07A&bcolor=2B2B2B) | AAA | AAA |
 
-## Requirements
+## 🧵 Requirements
 
 * [Neovim] >= 0.8.0
 
-## Supported plugins
+## 🔌 Supported plugins
 
 * [NvimTree](https://github.com/nvim-tree/nvim-tree.lua)
 
-## Install
+## ⬇️ Install
 
 ```lua
 -- Packer
@@ -38,7 +38,7 @@ use 'reubenlillie/mine-shaft'
 Plug 'reubenlillie/mine-shaft'
 ```
 
-## Use
+## 🖌️ Use
 
 ```lua
 -- Lua
@@ -50,7 +50,7 @@ vim.cmd[[colorscheme mine-shaft]]
 colorscheme mine-shaft
 ```
 
-## Credits
+## 🏆 Credits
 
 The color palette is inspired by [Eric Bailey’s](https://github.com/ericwbailey) [a11y-syntax-highlighting](https://github.com/ericwbailey/a11y-syntax-highlighting).
 

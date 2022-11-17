@@ -53,7 +53,7 @@ local function setup(configs)
     Normal = {fg = colors.white, bg = colors.darkGray},
     Pmenu = {link = 'CursorLine'},
     PmenuSel = {reverse = true, bold = true},
-    PmenuSbar = {bg = colors.white},
+    PmenuSbar = {bg = colors.lightGray},
     PmenuThumb = {bg = colors.blue},
     PopupNotification = {link = 'Normal'},
     Question = {link = 'MoreMsg'},
@@ -77,7 +77,7 @@ local function setup(configs)
     WinBar = {link = 'Normal'},
     WinBarNC = {link = 'Comment'},
     Menu = {link = 'CursorLine'},
-    Scrollbar = {link = 'CursorLine'},
+    Scrollbar = {link = 'PmenuSbar'},
     Tooltip = {link = 'CursorLine'},
 
     -- HTML

@@ -76,9 +76,9 @@ local function setup(configs)
     WildMenu = {fg = colors.darkGray, bg = colors.green},
     WinBar = {link = 'Normal'},
     WinBarNC = {link = 'Comment'},
-    Menu = {link = 'Ignore'},
-    Scrollbar = {link = 'Ignore'},
-    Tooltip = {link = 'Ignore'},
+    Menu = {link = 'Normal'},
+    Scrollbar = {link = 'Normal'},
+    Tooltip = {link = 'Normal'},
 
     -- HTML
     htmlArg = {link = 'Type'},

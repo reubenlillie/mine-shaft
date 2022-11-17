@@ -55,7 +55,7 @@ local function setup(configs)
     PmenuSel = {fg = colors.yellow, bg = colors.darkGray, bold = true},
     PmenuSbar = {bg = colors.darkGray},
     PmenuThumb = {bg = colors.yellow},
-    PopupNotification = {link = 'Ignore'},
+    PopupNotification = {link = 'Normal'},
     Question = {link = 'MoreMsg'},
     QuickFixLine = {link = 'CursorLine'},
     Search = {link = 'IncSearch'},

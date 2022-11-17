@@ -73,6 +73,7 @@ local function setup(configs)
     Visual = {link = 'CursorLine'},
     VisualNOS = {link = 'Visual'},
     WarningMsg = {fg = colors.darkGray, bg = colors.yellow},
+    Whitespace = {link = 'Comment', italic = true},
     WildMenu = {fg = colors.darkGray, bg = colors.green},
     WinBar = {link = 'Normal'},
     WinBarNC = {link = 'Comment'},

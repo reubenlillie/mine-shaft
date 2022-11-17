@@ -20,7 +20,7 @@ _An accessible color scheme for Neovim_
 
 ## 🧵 Requirements
 
-* [Neovim] >= 0.8.0
+* [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) >= 0.8.0
 
 ## 🔌 Supported plugins
 
@@ -28,30 +28,33 @@ _An accessible color scheme for Neovim_
 
 ## ⬇️ Install
 
+### [Packer](https://github.com/wbthomason/packer.nvim)
+
 ```lua
--- Packer
 use 'reubenlillie/mine-shaft'
 ```
 
+### [Vim-Plug](https://github.com/junegunn/vim-plug)
 ```vim
-" Vim-Plug
 Plug 'reubenlillie/mine-shaft'
 ```
 
 ## 🖌️ Use
 
+### Lua
+
 ```lua
--- Lua
 vim.cmd[[colorscheme mine-shaft]]
 ```
 
+### Vim script
+
 ```vim
-" Vim script
 colorscheme mine-shaft
 ```
 
 ## 🏆 Credits
 
-The color palette is inspired by [Eric Bailey’s](https://github.com/ericwbailey) [a11y-syntax-highlighting](https://github.com/ericwbailey/a11y-syntax-highlighting).
+The color palette is inspired by [Eric Bailey’s](https://github.com/ericwbailey) ♿ [a11y-syntax-highlighting](https://github.com/ericwbailey/a11y-syntax-highlighting).
 
-The code base takes cues from [Mofiqul’s](https://github.com/Mofiqul) conversion of Vim’s default [dracula color scheme to Lua](https://github.com/Mofiqul/dracula.nvim).
+The code base takes cues from [Mofiqul’s](https://github.com/Mofiqul) conversion of Vim’s default 🧛 [dracula color scheme to Lua](https://github.com/Mofiqul/dracula.nvim).

@@ -17,7 +17,7 @@ local function setup(configs)
     Todo = {fg = colors.darkGray, bg = colors.blue},
 
     -- :help highlight-groups
-    ColorColumn = {bg = colors.red},
+    ColorColumn = {reverse = true},
     Conceal = {fg = colors.lightGray},
     CurSearch = {fg = colors.darkGray, bg = colors.green, bold = true},
     Cursor = {reverse = true},

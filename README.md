@@ -8,8 +8,9 @@ _An accessible color scheme for Neovim_
 
 ## 🎨 Color palette
 
-* Light text on a dark background.
-* [WCAG AAA compliant](https://www.w3.org/TR/WCAG/#visual-audio-contrast-contrast) for color contrast.
+
+* Light text on a dark background
+* Ratios meet or exceed [WCAG AAA](https://www.w3.org/TR/WCAG/#contrast-enhanced) criteria for enhanced contrast
 
 | Color | Hex | Ratio | Normal Text | Large Text |
 | :---- | :-- | ----: | :---------- | :--------- |

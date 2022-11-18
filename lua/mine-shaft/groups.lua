@@ -84,7 +84,7 @@ local function setup(configs)
     -- HTML
     htmlArg = {link = 'Type'},
     htmlBold = {bold = true},
-    htmlEndTag = {link = 'Normal'},
+    htmlEndTag = {link = 'htmlTag'},
     htmlH1 = {link = 'htmlBold'},
     htmlH2 = {link = 'htmlH1'},
     htmlH3 = {link = 'htmlH1'},
@@ -95,7 +95,7 @@ local function setup(configs)
     htmlLink = {underline = true},
     htmlSpecialChar = {link = 'Special'},
     htmlSpecialTagName = {link = 'Statement'},
-    htmlTag = {link = 'Normal'},
+    htmlTag = {fg = colors.white, bg = 'NONE'},
     htmlTagN = {link = 'Statement'},
     htmlTagName = {link = 'Statement'},
     htmlTitle = {link = 'Special'},

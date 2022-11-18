@@ -85,7 +85,7 @@ local function setup(configs)
     htmlArg = {link = 'Type'},
     htmlBold = {bold = true},
     htmlEndTag = {link = 'Normal'},
-    htmlH1 = {link = 'Identifier'},
+    htmlH1 = {link = 'htmlBold'},
     htmlH2 = {link = 'htmlH1'},
     htmlH3 = {link = 'htmlH1'},
     htmlH4 = {link = 'htmlH1'},

@@ -20,4 +20,6 @@ return {
   blue = '#00e0e0',
   -- Snuff http://chir.ag/projects/name-that-color/#dcc6e0
   purple = '#dcc6e0',
+  -- Pink http://chir.ag/projects/name-that-color/#e3aaa2
+  pink = '#e3aaa2',
 }

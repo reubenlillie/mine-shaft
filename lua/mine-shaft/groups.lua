@@ -10,7 +10,7 @@ local function setup(configs)
     Statement = {fg = colors.red},
     PreProc = {fg = colors.purple},
     Type = {fg = colors.green},
-    Special = {fg = colors.purple},
+    Special = {fg = colors.pink},
     Underlined = {underline = true},
     Ignore = {fg = colors.darkGray, bg = colors.lightGray, italic = true},
     Error = {fg = colors.darkGray, bg = colors.red},
@@ -125,6 +125,7 @@ local function setup(configs)
     yamlKeyValueDelimiter = {link = 'Normal'},
 
     -- CSS
+    cssAtKeyword = {link = 'Special'},
     cssBraces = {link = 'Comment'},
 
     -- JavaScript

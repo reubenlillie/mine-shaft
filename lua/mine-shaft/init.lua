@@ -18,7 +18,7 @@ local function apply_term_colors(colors)
    g.terminal_color_1 = colors.red
    g.terminal_color_2 = colors.green
    g.terminal_color_3 = colors.yellow
-   g.terminal_color_4 = colors.purple
+   g.terminal_color_4 = colors.blue
    g.terminal_color_5 = colors.purple
    g.terminal_color_6 = colors.cyan
    g.terminal_color_7 = colors.white
@@ -27,7 +27,7 @@ local function apply_term_colors(colors)
    g.terminal_color_10 = colors.green
    g.terminal_color_11 = colors.yellow
    g.terminal_color_12 = colors.blue
-   g.terminal_color_13 = colors.purple
+   g.terminal_color_13 = colors.pink
    g.terminal_color_14 = colors.blue
    g.terminal_color_15 = colors.white
    g.terminal_color_background = colors.darkGray

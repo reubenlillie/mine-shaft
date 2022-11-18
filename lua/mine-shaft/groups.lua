@@ -135,7 +135,7 @@ local function setup(configs)
     javaScriptEmbed = {link = 'Comment'},
     javaScriptLabel = {link = 'Constant'},
     javaScriptMember = {link = 'Constant'},
-    javaScriptNull = {link = 'PreProc'},
+    javaScriptNull = {link = 'Special'},
     javaScriptNumber = {link = 'Identifier'},
     javaScriptOperator = {link = 'Identifier'},
     javaScriptParens = {link = 'Comment'},

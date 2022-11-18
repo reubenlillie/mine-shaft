@@ -38,7 +38,7 @@ local function setup(configs)
     SignColumn = {link = 'Normal'},
     IncSearch = {fg = colors.darkGray, bg = colors.yellow, bold = true},
     Substitute = {link = 'Sign'},
-    LineNr = {fg = colors.white, bg = colors.darkGray, bold = true},
+    LineNr = {link = 'CursorLine', bold = true},
     LineNrAbove = {link = 'Comment'},
     LineNrBelow = {link = 'LineNrAbove'},
     CursorLineNr = {link = 'LineNr'},

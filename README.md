@@ -2,6 +2,10 @@
 
 _An accessible color scheme for Neovim_
 
+## 🛤 Code sample
+
+![The Mine Shaft color scheme applied to HTML in Neovim with the NvimTree. Screenshot](https://raw.githubusercontent.com/reubenlillie/mine-shaft/main/images/test.html.png")
+
 ## 🎨 Color palette
 
 * Light text on a dark background.

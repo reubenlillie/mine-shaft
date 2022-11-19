@@ -23,7 +23,7 @@ _An accessible color scheme for Neovim written in Lua_
 | [Spring Wood](http://chir.ag/projects/name-that-color/#f8f8f2) | `#f8f8f2` | [13.28:1](https://webaim.org/resources/contrastchecker/?fcolor=F8F8F2&bcolor=2B2B2B) | AAA | AAA |
 | [Vivid Tangerine](http://chir.ag/projects/name-that-color/#ffa07a) | `#ffa07a` | [7.12:1](https://webaim.org/resources/contrastchecker/?fcolor=FFA07A&bcolor=2B2B2B) | AAA | AAA |
 
-## 🧵 Requirements
+## 📋 Requirements
 
 * [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) >= 0.8.0
 

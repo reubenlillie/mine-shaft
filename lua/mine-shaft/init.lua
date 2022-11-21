@@ -20,7 +20,7 @@ local function apply_term_colors(colors)
    g.terminal_color_3 = colors.yellow
    g.terminal_color_4 = colors.blue
    g.terminal_color_5 = colors.purple
-   g.terminal_color_6 = colors.cyan
+   g.terminal_color_6 = colors.blue
    g.terminal_color_7 = colors.white
    g.terminal_color_8 = colors.lightGray
    g.terminal_color_9 = colors.red

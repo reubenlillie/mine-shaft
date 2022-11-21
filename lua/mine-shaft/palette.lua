@@ -1,10 +1,10 @@
 -- Defines a table of hexadecimal color codes
--- https://github.com/ericwbailey/a11y-syntax-highlighting#a11y-dark
+-- Adapted from https://github.com/ericwbailey/a11y-syntax-highlighting#a11y-dark
 return {
   -- Spring Wood http://chir.ag/projects/name-that-color/#f8f8f2
   white = '#f8f8f2',
   -- Cod Gray http://chir.ag/projects/name-that-color/#2b2b2b
-  -- Added to palette specifically for CursorLine highlight group
+  -- Added to palette specifically for the `CursorLine` highlight group
   black = '#0b0b0b',
   -- Mine Shaft http://chir.ag/projects/name-that-color/#2b2b2b
   darkGray = '#2b2b2b',
@@ -21,5 +21,6 @@ return {
   -- Snuff http://chir.ag/projects/name-that-color/#dcc6e0
   purple = '#dcc6e0',
   -- Pink http://chir.ag/projects/name-that-color/#e3aaa2
+  -- Added to palette specifically for `Special` highlight group
   pink = '#e3aaa2',
 }

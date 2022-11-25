@@ -4,17 +4,51 @@ local function setup(configs)
 
   return {
     -- :help group-name
-    Comment = {fg = colors.lightGray},
-    Constant = {fg = colors.yellow},
-    Identifier = {fg = colors.blue},
-    Statement = {fg = colors.red},
-    PreProc = {fg = colors.purple},
-    Type = {fg = colors.green},
-    Special = {fg = colors.pink},
-    Underlined = {underline = true},
-    Ignore = {fg = colors.darkGray, bg = colors.lightGray, italic = true},
-    Error = {fg = colors.darkGray, bg = colors.red},
-    Todo = {fg = colors.darkGray, bg = colors.blue},
+    Comment = {fg = colors.lightGray}, -- any comment
+
+    Constant = {fg = colors.yellow}, -- any constant
+    String = {fg = colors.green}, -- a string constant: "this is a string"
+    Character = {fg = colors.pink}, -- a character constant: 'c', '\n'
+    Number = {fg = colors.blue}, -- a number constant: 234, 0xff
+    Boolean = {fg = colors.red}, -- a boolean constant: TRUE, false
+    Float = {fg = colors.yellow}, -- a floating point constant: 2.3e10
+
+    Identifier = {fg = colors.blue}, -- any variable name
+    Function = {fg = colors.blue}, -- function name (also: methods for classes)
+
+    Statement = {fg = colors.red}, -- any statement
+    Conditional = {fg = colors.red}, -- if, then, else, endif, switch, etc.
+    Repeat = {fg = colors.red}, -- for, do, while, etc.
+    Label = {fg = colors.red}, -- case, default, etc.
+    Operator = {fg = colors.red}, -- "sizeof", "+", "*", etc.
+    Keyword = {fg = colors.red}, -- any other keyword
+    Exception = {fg = colors.red}, -- try, catch, throw
+
+    PreProc = {fg = colors.purple}, -- generic Preprocessor
+    Include = {fg = colors.purple}, -- preprocessor #include
+    Define = {fg = colors.purple}, -- preprocessor #define
+    Macro = {fg = colors.purple}, -- same as Define
+    Precondit = {fg = colors.purple}, -- preprocessor #if, #else, #endif, etc.
+
+    Type = {fg = colors.green}, -- int, long, char, etc.
+    StorageClass = {fg = colors.green}, -- static, register, volatile, etc.
+    Structure = {fg = colors.green}, -- struct, union, enum, etc.
+    Typedef = {fg = colors.green}, -- A typedef
+
+    Special = {fg = colors.pink}, -- any special symbol
+    SpecialChar = {fg = colors.pink}, -- special character in a constant
+    Tag = {fg = colors.pink}, -- you can use CTRL-] on this
+    Delimiter = {fg = colors.pink}, -- character that needs attention
+    SpecialComment = {fg = colors.pink}, -- special things inside a comment
+    Debug = {fg = colors.pink}, -- debugging statements
+
+    Underlined = {underline = true}, -- text that stands out, HTML links
+
+    Ignore = {fg = colors.darkGray, bg = colors.lightGray, italic = true}, -- left blank, hidden  hl-Ignore
+
+    Error = {fg = colors.darkGray, bg = colors.red}, -- any erroneous construct
+
+    Todo = {fg = colors.darkGray, bg = colors.blue}, -- anything that needs extra attention
 
     -- :help highlight-groups
     ColorColumn = {reverse = true},

@@ -34,19 +34,29 @@ _An accessible color scheme for Neovim written in Lua_
 
 ## ⬇️ Install
 
-Install _Mine Shaft_ with your preferred package manager:
+### Option A: with your preferred package manager
 
-### [Packer](https://github.com/wbthomason/packer.nvim)
+#### [Packer](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 use 'reubenlillie/mine-shaft'
 ```
 
-### [Vim-Plug](https://github.com/junegunn/vim-plug)
+#### [Vim-Plug](https://github.com/junegunn/vim-plug)
 
 ```vim
 Plug 'reubenlillie/mine-shaft'
 ```
+
+### Option B: manually
+
+```cli
+$ mkdir -p ~/.local/share/nvim/site/pack/mine-shaft/start/
+$ cd ~/.local/share/nvim/site/pack/mine-shaft/start/
+$ git clone https://github.com/reubenlillie/mine-shaft.git
+```
+
+For more information, type the command [`:help packages`][nvim-help-packages] in Neovim or read the [Neovim user documentation][nvim-help-packages] online.
 
 ## 🖌️ Use
 
@@ -74,3 +84,5 @@ colorscheme mine-shaft
 * ♿ Color palette adapted from [Eric Bailey’s](https://github.com/ericwbailey) [a11y-syntax-highlighting](https://github.com/ericwbailey/a11y-syntax-highlighting)
 
 * 🧛 Code base takes cues from [Mofiqul’s](https://github.com/Mofiqul) conversion of Vim’s default [dracula color scheme](https://github.com/Mofiqul/dracula.nvim) to Lua
+
+[nvim-help-packages]: https://neovim.io/doc/user/repeat.html#packages

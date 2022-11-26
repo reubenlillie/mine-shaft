@@ -1,100 +1,76 @@
--- Defines highlight groups
-local function setup(configs)
-  local colors = configs.colors
+-- @file Assigns gui arguments for syntax and 🖌️ highlight groups
+-- @author Reuben L. Lillie <https://zirk.us/@reubenlillie>
+-- @since 0.1.0
+-- @since 1.0.0 Reformat module to return a local table
+--              Deprecate local function setup()
+--              Add M.load()
+
+-- Declare a local table to return public module functions
+local M = {}
+
+-- Defines 🖌️ highlight groups
+function M.load(settings)
+  local p = settings.palette
 
   return {
     -- :help group-name
-    Comment = {fg = colors.lightGray}, -- any comment
-
-    Constant = {fg = colors.yellow}, -- any constant
-    String = {fg = colors.green}, -- a string constant: "this is a string"
-    Character = {fg = colors.pink}, -- a character constant: 'c', '\n'
-    Number = {fg = colors.blue}, -- a number constant: 234, 0xff
-    Boolean = {fg = colors.red}, -- a boolean constant: TRUE, false
-    Float = {fg = colors.yellow}, -- a floating point constant: 2.3e10
-
-    Identifier = {fg = colors.blue}, -- any variable name
-    Function = {fg = colors.blue}, -- function name (also: methods for classes)
-
-    Statement = {fg = colors.red}, -- any statement
-    Conditional = {fg = colors.red}, -- if, then, else, endif, switch, etc.
-    Repeat = {fg = colors.red}, -- for, do, while, etc.
-    Label = {fg = colors.red}, -- case, default, etc.
-    Operator = {fg = colors.red}, -- "sizeof", "+", "*", etc.
-    Keyword = {fg = colors.red}, -- any other keyword
-    Exception = {fg = colors.red}, -- try, catch, throw
-
-    PreProc = {fg = colors.purple}, -- generic Preprocessor
-    Include = {fg = colors.purple}, -- preprocessor #include
-    Define = {fg = colors.purple}, -- preprocessor #define
-    Macro = {fg = colors.purple}, -- same as Define
-    Precondit = {fg = colors.purple}, -- preprocessor #if, #else, #endif, etc.
-
-    Type = {fg = colors.green}, -- int, long, char, etc.
-    StorageClass = {fg = colors.green}, -- static, register, volatile, etc.
-    Structure = {fg = colors.green}, -- struct, union, enum, etc.
-    Typedef = {fg = colors.green}, -- A typedef
-
-    Special = {fg = colors.pink}, -- any special symbol
-    SpecialChar = {fg = colors.pink}, -- special character in a constant
-    Tag = {fg = colors.pink}, -- you can use CTRL-] on this
-    Delimiter = {fg = colors.pink}, -- character that needs attention
-    SpecialComment = {fg = colors.pink}, -- special things inside a comment
-    Debug = {fg = colors.pink}, -- debugging statements
-
-    Underlined = {underline = true}, -- text that stands out, HTML links
-
-    Ignore = {fg = colors.darkGray, bg = colors.lightGray, italic = true}, -- left blank, hidden  hl-Ignore
-
-    Error = {fg = colors.darkGray, bg = colors.red}, -- any erroneous construct
-
-    Todo = {fg = colors.darkGray, bg = colors.blue}, -- anything that needs extra attention
+    Comment = {fg = p.lightGray},
+    Constant = {fg = p.yellow},
+    Identifier = {fg = p.blue},
+    Statement = {fg = p.red},
+    PreProc = {fg = p.purple},
+    Type = {fg = p.green},
+    Special = {fg = p.pink},
+    Underlined = {underline = true},
+    Ignore = {fg = p.darkGray, bg = p.lightGray, italic = true},
+    Error = {fg = p.darkGray, bg = p.red},
+    Todo = {fg = p.darkGray, bg = p.blue},
 
     -- :help highlight-groups
     ColorColumn = {reverse = true},
-    Conceal = {fg = colors.lightGray},
-    CurSearch = {fg = colors.darkGray, bg = colors.green, bold = true},
+    Conceal = {fg = p.lightGray},
+    CurSearch = {fg = p.darkGray, bg = p.green, bold = true},
     Cursor = {reverse = true},
     lCursor = {link = 'Cursor'},
     CursorIM = {link = 'Cursor'},
     CursorColumn = {link = 'CursorLine'},
-    CursorLine = {fg = 'NONE', bg = colors.black},
+    CursorLine = {fg = 'NONE', bg = p.black},
     Directory = {link = 'Identifier'},
-    DiffAdd = {fg = colors.green},
-    DiffChange = {fg = colors.yellow},
-    DiffDelete = {fg = colors.red},
-    DiffText = {fg = colors.lightGray},
+    DiffAdd = {fg = p.green},
+    DiffChange = {fg = p.yellow},
+    DiffDelete = {fg = p.red},
+    DiffText = {fg = p.lightGray},
     EndOfBuffer = {link = 'Comment'},
     ErrorMsg = {link = 'Error'},
     WinSeparator = {link = 'Ignore'},
     Folded = {link = 'Ignore'},
     FoldColumn = {link = 'Folded'},
     SignColumn = {link = 'Normal'},
-    IncSearch = {fg = colors.darkGray, bg = colors.yellow, bold = true},
+    IncSearch = {fg = p.darkGray, bg = p.yellow, bold = true},
     Substitute = {link = 'Sign'},
-    LineNr = {fg = colors.white, bg = colors.black, bold = true},
+    LineNr = {fg = p.white, bg = p.black, bold = true},
     LineNrAbove = {link = 'Comment'},
     LineNrBelow = {link = 'LineNrAbove'},
     CursorLineNr = {link = 'LineNr'},
     CursorLineFold = {link = 'Folded'},
     CursorLineSign = {link = 'SignColumn'},
     MatchParen = {reverse = true},
-    ModeMsg = {fg = colors.white},
-    MsgArea = {fg = colors.white},
-    MsgSeparator = {fg = colors.white},
-    MoreMsg = {fg = colors.white},
-    NonText = {fg = colors.white},
-    Normal = {fg = colors.white, bg = colors.darkGray},
+    ModeMsg = {fg = p.white},
+    MsgArea = {fg = p.white},
+    MsgSeparator = {fg = p.white},
+    MoreMsg = {fg = p.white},
+    NonText = {fg = p.white},
+    Normal = {fg = p.white, bg = p.darkGray},
     Pmenu = {link = 'CursorLine'},
     PmenuSel = {reverse = true, bold = true},
     PmenuSbar = {link = 'CursorLine'},
-    PmenuThumb = {bg = colors.yellow},
+    PmenuThumb = {bg = p.yellow},
     PopupNotification = {link = 'Normal'},
     Question = {link = 'MoreMsg'},
     QuickFixLine = {link = 'CursorLine'},
     Search = {link = 'IncSearch'},
     SpecialKey = {link = 'Special', bold = true, italic = true},
-    SpellBad = {fg = colors.red, underline = true},
+    SpellBad = {fg = p.red, underline = true},
     SpellCap = {link = 'SpellBad'},
     SpellLocal = {link = 'SpellBad'},
     SpellRare = {link = 'SpellBad'},
@@ -106,9 +82,9 @@ local function setup(configs)
     Title = {link = 'Normal'},
     Visual = {link = 'CursorLine'},
     VisualNOS = {link = 'Visual'},
-    WarningMsg = {fg = colors.darkGray, bg = colors.yellow},
+    WarningMsg = {fg = p.darkGray, bg = p.yellow},
     Whitespace = {link = 'PreProc', italic = true},
-    WildMenu = {fg = colors.darkGray, bg = colors.green},
+    WildMenu = {fg = p.darkGray, bg = p.green},
     WinBar = {link = 'Normal'},
     WinBarNC = {link = 'Comment'},
     Menu = {link = 'CursorLine'},
@@ -129,7 +105,7 @@ local function setup(configs)
     htmlLink = {underline = true},
     htmlSpecialChar = {link = 'Special'},
     htmlSpecialTagName = {link = 'Statement'},
-    htmlTag = {fg = colors.white, bg = 'NONE'},
+    htmlTag = {fg = p.white, bg = 'NONE'},
     htmlTagN = {link = 'Statement'},
     htmlTagName = {link = 'Statement'},
     htmlTitle = {link = 'Special'},
@@ -167,7 +143,7 @@ local function setup(configs)
     javaScriptBraces = {link = 'PreProc'},
     javaScriptConditional = {link = 'Constant'},
     javaScriptConstant = {link = 'Statement'},
-    javaScriptEmbed = {fg = colors.white, bold = true},
+    javaScriptEmbed = {fg = p.white, bold = true},
     javaScriptException = {link = 'Statement'},
     javaScriptGlobal = {link = 'Constant'},
     javaScriptLabel = {link = 'Statement'},
@@ -188,21 +164,19 @@ local function setup(configs)
     NvimTreeCursorLine = {link = 'CursorLine'},
     NvimTreeEmptyFolderName = {link = 'Comment'},
     NvimTreeEndOfBuffer = {link = 'EndOfBuffer'},
-    NvimTreeFolderIcon = {fg = colors.blue},
-    NvimTreeFolderName = {fg = colors.blue},
-    NvimTreeGitDirty = {fg = colors.red},
-    NvimTreeGitNew = {fg = colors.yellow},
+    NvimTreeFolderIcon = {fg = p.blue},
+    NvimTreeFolderName = {fg = p.blue},
+    NvimTreeGitDirty = {fg = p.red},
+    NvimTreeGitNew = {fg = p.yellow},
     NvimTreeImageFile = {link = 'Special'},
-    NvimTreeIn = {bg = colors.green},
-    NvimTreeIndentMarker = {fg = colors.lightGray},
+    NvimTreeIn = {bg = p.green},
+    NvimTreeIndentMarker = {fg = p.lightGray},
     NvimTreeNormal = {link = 'Normal'},
-    NvimTreeOpenedFolderName = {fg = colors.blue, italic = true},
-    NvimTreeRootFolder = {fg = colors.white, bold = true},
+    NvimTreeOpenedFolderName = {fg = p.blue, italic = true},
+    NvimTreeRootFolder = {fg = p.white, bold = true},
     NvimTreeSpecialFile = {link = 'Special', underline = true},
     NvimTreeVertSplit = {link = 'Comment'},
   }
 end
 
-return {
-  setup = setup,
-}
+return M

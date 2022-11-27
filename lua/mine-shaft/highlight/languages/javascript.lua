@@ -39,7 +39,7 @@ function M.highlight(palette)
     -- javaScriptType = {link = 'Type'},
     -- javaScriptStatement = {link = 'Statement'},
     -- javaScriptFunction = {link = 'Function'},
-    -- javaScriptBraces = {link = 'Function'},
+    javaScriptBraces = {link = 'Normal'}, -- Function
     -- javaScriptError = {link = 'Error'},
     -- javaScrParenError = {link = 'javaScriptError'},
     -- javaScriptNull = {link = 'Keyword'},

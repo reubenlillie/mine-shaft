@@ -197,7 +197,7 @@ function M.highlight(palette)
     TabLineSel = {link = 'Normal'},
 
     -- Titles for output from ":set all", ":autocmd" etc
-    Title = {link = 'Normal'},
+    Title = {link = 'htmlBold'},
 
     -- Visual mode selection
     Visual = {link = 'CursorLine'},

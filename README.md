@@ -1,6 +1,21 @@
-# ⛏️ Mine Shaft
-
-_An accessible color scheme for Neovim written in Lua_
+<div align="center">
+  <h1>⛏️ Mine Shaft</h1>
+  <p><em>An accessible color scheme for Neovim written in Lua</em></p>
+</div>
+<p align="center">
+  <!--Release-->
+  <a href="https://github.com/reubenlillie/mine-shaft/releases"><img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/reubenlillie/mine-shaft?include_prereleases&label=%F0%9F%8F%B7%EF%B8%8F%20Latest&colorA=2b2b2b&colorB=d4d0ab&style=for-the-badge"></a>
+  <!--Issues-->
+  <a href="https://github.com/reubenlillie/mine-shaft/issues"><img alt="GitHub issues open" src="https://img.shields.io/github/issues/reubenlillie/mine-shaft?label=%E2%9D%97%20Issues&colorA=2b2b2b&colorB=ffa07a&style=for-the-badge"></a>
+  <!--Stars-->
+  <a href="https://github.com/reubenlillie/mine-shaft/stargazers"><img alt="GitHub repo stars" src="https://img.shields.io/github/stars/reubenlillie/mine-shaft?label=%F0%9F%8C%9F%20Stars&colorA=2b2b2b&colorB=ffd700&style=for-the-badge"></a>
+  <!--Forks-->
+  <a href="https://github.com/reubenlillkie/mine-shaft/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/reubenlillie/mine-shaft?label=%F0%9F%94%B1%20Forks&colorA=2b2b2b&colorB=abe338&style=for-the-badge"></a>
+  <!--Contributors-->
+  <a href="https://github.com/reubenlillkie/mine-shaft/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/reubenlillie/mine-shaft?label=%F0%9F%91%B7%20Contributors&colorA=2b2b2b&colorB=e3aaa2&style=for-the-badge"></a>
+  <!--Commits since lastest relase-->
+  <a href="https://github.com/reubenlillie/mine-shaft/commits/v1.0.0"><img alt="GitHub commits since latest release (by date including pre-releases)" src="https://img.shields.io/github/commits-since/reubenlillie/mine-shaft/v0.1.1/v1.0.0?include_prereleases&colorA=2b2b2b&colorB=dcc6e0&logo=git&style=for-the-badge"></a>
+</p>
 
 ## 🧪 Code sample
 

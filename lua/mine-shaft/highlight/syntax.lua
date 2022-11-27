@@ -33,7 +33,7 @@ function M.highlight(palette)
     Function = {link = 'Identifier'}, -- function name (also: methods for classes)
 
     Statement = {fg = p.red}, -- (preferred) any statement
-    Conditional = {link = 'Statement'}, -- if, then, else, endif, switch, etc.
+    Conditional = {fg = p.yellow}, -- if, then, else, endif, switch, etc.
     Repeat = {link = 'Statement'}, -- for, do, while, etc.
     Label = {link = 'Statement'}, -- case, default, etc.
     Operator = {link = 'Statement'}, -- "sizeof", "+", "*", etc.

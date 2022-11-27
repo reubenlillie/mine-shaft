@@ -26,9 +26,9 @@ function M.highlight(palette)
     -- javaScriptLineComment = {link = 'Comment'},
     -- javaScriptCommentTodo = {link = 'Todo'},
     -- javaScriptSpecial = {link = 'Special'},
-    -- javaScriptStringS = {link = 'String'},
-    -- javaScriptStringD = {link = 'String'},
-    -- javaScriptStringT = {link = 'String'},
+    javaScriptStringS = {link = 'Type'}, -- String
+    javaScriptStringD = {link = 'Type'}, -- String
+    javaScriptStringT = {link = 'Type'}, -- String
     -- javaScriptCharacter = {link = 'Character'},
     -- javaScriptSpecialCharacter = {link = 'javaScriptSpecial'},
     javaScriptNumber = {link = 'Number'}, --javaScriptValue

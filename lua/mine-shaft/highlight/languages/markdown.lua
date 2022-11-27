@@ -36,7 +36,7 @@ function M.highlight(palette)
     -- markdownH4Delimiter = {link = 'markdownHeadingDelimiter'},
     -- markdownH5Delimiter = {link = 'markdownHeadingDelimiter'},
     -- markdownH6Delimiter = {link = 'markdownHeadingDelimiter'},
-    -- markdownHeadingDelimiter = {link ='Delimiter'},
+    markdownHeadingDelimiter = {fg = p.pink, bold = true}, -- Delimiter
     -- markdownOrderedListMarker = {link ='markdownListMarker'},
     -- markdownListMarker = {link ='htmlTagName'},
     -- markdownBlockquote = {link ='Comment'},

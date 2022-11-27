@@ -46,7 +46,7 @@ function M.highlight(palette)
     NvimTreeGitDeleted = {fg = p.red},
     -- NvimTreeGitIgnored = {link = 'Comment'},
 
-    -- NvimTreeWindowPicker
+    NvimTreeWindowPicker = {link = 'WarningMsg'},
 
     NvimTreeNormal = {link = 'Normal'},
     NvimTreeEndOfBuffer = {link = 'EndOfBuffer'},

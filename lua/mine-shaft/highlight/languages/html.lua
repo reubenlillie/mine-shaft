@@ -47,7 +47,7 @@ function M.highlight(palette)
     -- htmlItalicBold = {link = 'htmlBoldItalic'},
     -- htmlItalicBoldUnderline = {link = 'htmlBoldUnderlineItalic'},
     -- htmlItalicUnderlineBold = {link = 'htmlBoldUnderlineItalic'},
-    -- htmlLink = {link = 'Underlined'},
+    htmlLink = {fg = p.blue, underline = true}, -- Underlined
     -- htmlLeadingSpace = {link = 'None'},
     htmlBold = {bold = true},
     htmlBoldUnderline = {bold = true, underline = true},

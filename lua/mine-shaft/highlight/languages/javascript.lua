@@ -42,7 +42,7 @@ function M.highlight(palette)
     javaScriptBraces = {link = 'Normal'}, -- Function
     -- javaScriptError = {link = 'Error'},
     -- javaScrParenError = {link = 'javaScriptError'},
-    -- javaScriptNull = {link = 'Keyword'},
+    javaScriptNull = {link = 'Special'}, -- Keyword
     -- javaScriptBoolean = {link = 'Boolean'},
     -- javaScriptRegexpString = {link = 'String'},
 

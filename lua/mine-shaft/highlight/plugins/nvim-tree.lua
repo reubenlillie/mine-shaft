@@ -29,7 +29,7 @@ function M.highlight(palette)
     NvimTreeOpenedFolderName = {fg = p.blue, italic = true}, -- Directory
     -- NvimTreeExecFile
     -- NvimTreeOpenedFile
-    -- NvimTreeSpecialFile
+    NvimTreeSpecialFile = {link = 'Special'},
     NvimTreeImageFile = {link = 'Special'},
     NvimTreeIndentMarker = {link = 'Comment'},
 

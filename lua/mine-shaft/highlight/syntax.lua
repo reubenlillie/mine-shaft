@@ -26,7 +26,7 @@ function M.highlight(palette)
     String = {link = 'Constant'}, -- a string constant: "this is a string"
     Character = {link = 'Constant'}, -- a character constant: 'c', '\n'
     Number = {fg = p.blue}, -- a number constant: 234, 0xff
-    Boolean = {link = 'Constant'}, -- a boolean constant: TRUE, false
+    Boolean = {link = 'Special'}, -- a boolean constant: TRUE, false
     Float = {link = 'Constant'}, -- a floating point constant: 2.3e10
 
     Identifier = {fg = p.blue}, -- (preferred) any variable name

@@ -82,7 +82,8 @@ colorscheme mine-shaft
 ## 🏆 Colophon
 
 * ♿ Color palette adapted from [Eric Bailey’s](https://github.com/ericwbailey) [a11y-syntax-highlighting](https://github.com/ericwbailey/a11y-syntax-highlighting)
-
-* 🧛 Code base takes cues from [Mofiqul’s](https://github.com/Mofiqul) conversion of Vim’s default [dracula color scheme](https://github.com/Mofiqul/dracula.nvim) to Lua
+* Code base takes cues from:
+  - 🧛 [Mofiqul’s](https://github.com/Mofiqul) conversion of Vim’s default [dracula color scheme](https://github.com/Mofiqul/dracula.nvim) to Lua
+  - 🦊 [EastEden](https://github.com/EdenEast)’s [Nightfox](https://github.com/EdenEast/nightfox.nvim)
 
 [nvim-help-packages]: https://neovim.io/doc/user/repeat.html#packages

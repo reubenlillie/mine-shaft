@@ -39,11 +39,11 @@ function M.highlight(palette)
     -- NvimTreeLspDiagnosticsHint = {link = 'DiagnosticHint'},
 
     NvimTreeGitDirty = {fg = p.red},
-    -- NvimTreeGitStaged
+    NvimTreeGitStaged = {fg = p.green},
     -- NvimTreeGitMerge
     -- NvimTreeGitRenamed
     NvimTreeGitNew = {fg = p.yellow},
-    -- NvimTreeGitDeleted
+    NvimTreeGitDeleted = {fg = p.red},
     -- NvimTreeGitIgnored = {link = 'Comment'},
 
     -- NvimTreeWindowPicker

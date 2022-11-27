@@ -118,7 +118,7 @@ function M.highlight(palette)
     -- cssAtKeyword = {link = 'PreProc'},
     -- cssImportant = {link = 'Special'},
     -- cssCustomProp = {link = 'Special'},
-    -- cssBraces = {link = 'Function'},
+    cssBraces = {link = 'Normal'}, -- Function
     -- cssBraceError = {link = 'Error'},
     -- cssError = {link = 'Error'},
     -- cssUnicodeEscape = {link = 'Special'},

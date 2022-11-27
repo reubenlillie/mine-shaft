@@ -6,9 +6,12 @@
 -- Declare a local table to return public module functions
 local M = {}
 
--- Set the color number arguments used to color the terminal
+-- Set the color number arguments used to highlight the terminal
+-- @param {table} palette Colors to assign to the terminal
+-- @return {table} Color assignments
 -- @see :help ctermfg
 -- @see :help termguicolors
+-- @see :help cterm-colors
 function M.highlight(palette)
   -- Access the color palette
   -- @see lua/mine-shaft/palette.lua

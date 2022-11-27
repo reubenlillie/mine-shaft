@@ -56,7 +56,7 @@ function M.highlight(palette)
     -- javaScriptReserved = {link = 'Keyword'},
     -- javaScriptDebug = {link = 'Debug'},
     -- javaScriptConstant = {link = 'Label'},
-    -- javaScriptEmbed = {link = 'Special'},
+    javaScriptEmbed = {link = 'htmlBold'}, -- Special
   }
 end
 

@@ -1,182 +1,59 @@
--- @file Assigns gui arguments for syntax and 🖌️ highlight groups
+-- @file Assigns gui arguments for syntax and 🖍️ highlight groups
 -- @author Reuben L. Lillie <https://zirk.us/@reubenlillie>
 -- @since 0.1.0
 -- @since 1.0.0 Reformat module to return a local table
 --              Deprecate local function setup()
 --              Add M.load()
+-- @see :help group-names
+-- @see :help highlight-groups
 
 -- Declare a local table to return public module functions
 local M = {}
 
--- Defines 🖌️ highlight groups
+-- Declare a table of names of programming languages with highlighting files
+-- @see lua/mine-shaft/highlight/languages
+M.languages = {
+  'css',
+  'html',
+  'javascript',
+  'markdown',
+  'yaml',
+}
+
+-- Declare a table of names of plugins with highlighting files
+-- @see lua/mine-shaft/highlight/plugins
+M.plugins = {
+  'nvim-tree',
+}
+
+-- Defines 🖍️ highlight groups
+-- @param {table} settings Includes a color palette table
+-- @return {table} Merged table of highlight groups tables across the color scheme
 function M.load(settings)
-  local p = settings.palette
+  -- Access the color palette table
+  local palette = settings.palette
 
-  return {
-    -- :help group-name
-    Comment = {fg = p.lightGray},
-    Constant = {fg = p.yellow},
-    Identifier = {fg = p.blue},
-    Statement = {fg = p.red},
-    PreProc = {fg = p.purple},
-    Type = {fg = p.green},
-    Special = {fg = p.pink},
-    Underlined = {underline = true},
-    Ignore = {fg = p.darkGray, bg = p.lightGray, italic = true},
-    Error = {fg = p.darkGray, bg = p.red},
-    Todo = {fg = p.darkGray, bg = p.blue},
+  -- The file path for highlight groups
+  local path = 'mine-shaft.highlight.'
 
-    -- :help highlight-groups
-    ColorColumn = {reverse = true},
-    Conceal = {fg = p.lightGray},
-    CurSearch = {fg = p.darkGray, bg = p.green, bold = true},
-    Cursor = {reverse = true},
-    lCursor = {link = 'Cursor'},
-    CursorIM = {link = 'Cursor'},
-    CursorColumn = {link = 'CursorLine'},
-    CursorLine = {fg = 'NONE', bg = p.black},
-    Directory = {link = 'Identifier'},
-    DiffAdd = {fg = p.green},
-    DiffChange = {fg = p.yellow},
-    DiffDelete = {fg = p.red},
-    DiffText = {fg = p.lightGray},
-    EndOfBuffer = {link = 'Comment'},
-    ErrorMsg = {link = 'Error'},
-    WinSeparator = {link = 'Ignore'},
-    Folded = {link = 'Ignore'},
-    FoldColumn = {link = 'Folded'},
-    SignColumn = {link = 'Normal'},
-    IncSearch = {fg = p.darkGray, bg = p.yellow, bold = true},
-    Substitute = {link = 'Sign'},
-    LineNr = {fg = p.white, bg = p.black, bold = true},
-    LineNrAbove = {link = 'Comment'},
-    LineNrBelow = {link = 'LineNrAbove'},
-    CursorLineNr = {link = 'LineNr'},
-    CursorLineFold = {link = 'Folded'},
-    CursorLineSign = {link = 'SignColumn'},
-    MatchParen = {reverse = true},
-    ModeMsg = {fg = p.white},
-    MsgArea = {fg = p.white},
-    MsgSeparator = {fg = p.white},
-    MoreMsg = {fg = p.white},
-    NonText = {fg = p.white},
-    Normal = {fg = p.white, bg = p.darkGray},
-    Pmenu = {link = 'CursorLine'},
-    PmenuSel = {reverse = true, bold = true},
-    PmenuSbar = {link = 'CursorLine'},
-    PmenuThumb = {bg = p.yellow},
-    PopupNotification = {link = 'Normal'},
-    Question = {link = 'MoreMsg'},
-    QuickFixLine = {link = 'CursorLine'},
-    Search = {link = 'IncSearch'},
-    SpecialKey = {link = 'Special', bold = true, italic = true},
-    SpellBad = {fg = p.red, underline = true},
-    SpellCap = {link = 'SpellBad'},
-    SpellLocal = {link = 'SpellBad'},
-    SpellRare = {link = 'SpellBad'},
-    StatusLine = {reverse = true, bold = true},
-    StatusLineNC = {link = 'Ignore'},
-    TabLine = {link = 'Ignore'},
-    TabLineFill = {link = 'Normal'},
-    TabLineSel = {link = 'Normal'},
-    Title = {link = 'Normal'},
-    Visual = {link = 'CursorLine'},
-    VisualNOS = {link = 'Visual'},
-    WarningMsg = {fg = p.darkGray, bg = p.yellow},
-    Whitespace = {link = 'PreProc', italic = true},
-    WildMenu = {fg = p.darkGray, bg = p.green},
-    WinBar = {link = 'Normal'},
-    WinBarNC = {link = 'Comment'},
-    Menu = {link = 'CursorLine'},
-    Scrollbar = {link = 'PmenuSbar'},
-    Tooltip = {link = 'CursorLine'},
+  -- Import highlight arguments for Neovim’s built-in highlight groups
+  local editor = require(path .. 'editor').highlight(palette)
+  local syntax = require(path .. 'syntax').highlight(palette)
 
-    -- HTML
-    htmlArg = {link = 'Type'},
-    htmlBold = {bold = true},
-    htmlEndTag = {link = 'htmlTag'},
-    htmlH1 = {link = 'htmlBold'},
-    htmlH2 = {link = 'htmlH1'},
-    htmlH3 = {link = 'htmlH1'},
-    htmlH4 = {link = 'htmlH1'},
-    htmlH5 = {link = 'htmlH1'},
-    htmlH6 = {link = 'htmlH1'},
-    htmlItalic = {italic = true},
-    htmlLink = {underline = true},
-    htmlSpecialChar = {link = 'Special'},
-    htmlSpecialTagName = {link = 'Statement'},
-    htmlTag = {fg = p.white, bg = 'NONE'},
-    htmlTagN = {link = 'Statement'},
-    htmlTagName = {link = 'Statement'},
-    htmlTitle = {link = 'Special'},
+  -- Merge imported built-in highlight groups
+  local groups = vim.tbl_deep_extend('force', editor, syntax)
 
-    -- Markdown
-    markdownCodeBlock = {link = 'Type'},
-    markdownCodeDelimiter = {link = 'Type'},
-    markdownH1 = {link = 'htmlBold'},
-    markdownH1Delimiter = {link = 'Identifier'},
-    markdownH2 = {link = 'htmlH1'},
-    markdownH2Delimiter = {link = 'markdownH1Delimiter'},
-    markdownH3 = {link = 'htmlH1'},
-    markdownH3Delimiter = {link = 'markdownH1Delimiter'},
-    markdownH4 = {link = 'htmlH1'},
-    markdownH4Delimiter = {link = 'markdownH1Delimiter'},
-    markdownH5 = {link = 'htmlH1'},
-    markdownH5Delimiter = {link = 'markdownH1Delimiter'},
-    markdownH6 = {link = 'htmlH1'},
-    markdownH6Delimiter = {link = 'markdownH1Delimiter'},
-    markdownYamlHead = {link = 'Normal'},
+  -- Import and merge highlight groups for specific programming languages
+  for _, language in ipairs(M.languages) do
+    groups = vim.tbl_deep_extend('force', groups, require(path .. 'languages.' .. language).highlight(palette))
+  end
 
-    -- YAML
-    yamlBlockMappingKey = {link = 'Constant'},
-    yamlDocumentStart = {link = 'Normal'},
-    yamlFlowIndicator = {link = 'Normal'},
-    yamlFlowString = {link = 'Type'},
-    yamlKeyValueDelimiter = {link = 'Normal'},
+  -- Import and merge highlight groups for supported plugins
+  for _, plugin in ipairs(M.plugins) do
+    groups = vim.tbl_deep_extend('force', groups, require(path .. 'plugins.' .. plugin).highlight(palette))
+  end
 
-    -- CSS
-    cssAtKeyword = {link = 'Special'},
-    cssBraces = {link = 'Comment'},
-
-    -- JavaScript
-    javaScriptBoolean = {link = 'Special'},
-    javaScriptBraces = {link = 'PreProc'},
-    javaScriptConditional = {link = 'Constant'},
-    javaScriptConstant = {link = 'Statement'},
-    javaScriptEmbed = {fg = p.white, bold = true},
-    javaScriptException = {link = 'Statement'},
-    javaScriptGlobal = {link = 'Constant'},
-    javaScriptLabel = {link = 'Statement'},
-    javaScriptMember = {link = 'Constant'},
-    javaScriptNull = {link = 'Special'},
-    javaScriptNumber = {link = 'Identifier'},
-    javaScriptOperator = {link = 'Identifier'},
-    javaScriptParens = {link = 'PreProc'},
-    javaScriptRepeat = {link = 'Statement'},
-    javaScriptReserved = {link = 'Special'},
-    javaScriptSpecial = {link = 'Type'},
-    javaScriptStatement = {link = 'Constant'},
-    javaScriptStringD = {link = 'Type'},
-    javaScriptStringS = {link = 'Type'},
-    javaScriptStringT = {link = 'Type'},
-
-    -- NvimTree
-    NvimTreeCursorLine = {link = 'CursorLine'},
-    NvimTreeEmptyFolderName = {link = 'Comment'},
-    NvimTreeEndOfBuffer = {link = 'EndOfBuffer'},
-    NvimTreeFolderIcon = {fg = p.blue},
-    NvimTreeFolderName = {fg = p.blue},
-    NvimTreeGitDirty = {fg = p.red},
-    NvimTreeGitNew = {fg = p.yellow},
-    NvimTreeImageFile = {link = 'Special'},
-    NvimTreeIn = {bg = p.green},
-    NvimTreeIndentMarker = {fg = p.lightGray},
-    NvimTreeNormal = {link = 'Normal'},
-    NvimTreeOpenedFolderName = {fg = p.blue, italic = true},
-    NvimTreeRootFolder = {fg = p.white, bold = true},
-    NvimTreeSpecialFile = {link = 'Special', underline = true},
-    NvimTreeVertSplit = {link = 'Comment'},
-  }
+  return groups
 end
 
 return M

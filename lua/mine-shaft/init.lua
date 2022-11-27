@@ -3,6 +3,7 @@
 -- @since 0.1.0
 -- @since 1.0.0 Reformat module to return a local table
 --              Add metadata
+--              Refactor apply_term_colors()
 
 -- Declare a local table to return public module functions
 local M = {
@@ -12,13 +13,6 @@ local M = {
   _LICENSE     = 'MIT'
 }
 
--- Shorten function calls
-local o = vim.o
-local g = vim.g
-local cmd = vim.cmd
-local nvim_set_hl = vim.api.nvim_set_hl
-local tbl_deep_extend = vim.tbl_deep_extend
-
 -- Define default color scheme settings
 local defaults = {
   palette = require('mine-shaft.palette').palette,
@@ -27,28 +21,20 @@ local defaults = {
 -- Set the color number arguments used for highlighting in the terminal
 -- @param {table} palette Colors to assign to the terminal
 -- @return {void}
+-- @since 0.1.0
+-- @since 0.1.1 Change `colors.cyan` to `colors.blue`
+-- @since 1.0.0 Move cterm-colors to lua/mine-shaft/highlight/terminal.lua
 -- @see :help ctermfg
 -- @see :help termguicolors
 -- @see :help cterm-colors
 local function apply_term_colors(palette)
-  g.terminal_color_0 = palette.darkGray
-  g.terminal_color_1 = palette.red
-  g.terminal_color_2 = palette.green
-  g.terminal_color_3 = palette.yellow
-  g.terminal_color_4 = palette.blue
-  g.terminal_color_5 = palette.purple
-  g.terminal_color_6 = palette.blue
-  g.terminal_color_7 = palette.white
-  g.terminal_color_8 = palette.lightGray
-  g.terminal_color_9 = palette.red
-  g.terminal_color_10 = palette.green
-  g.terminal_color_11 = palette.yellow
-  g.terminal_color_12 = palette.blue
-  g.terminal_color_13 = palette.pink
-  g.terminal_color_14 = palette.blue
-  g.terminal_color_15 = palette.white
-  g.terminal_color_background = palette.darkGray
-  g.terminal_color_foreground = palette.white
+  -- Import cterm color assignments
+  local colors = require('mine-shaft.highlight.terminal').highlight(palette)
+
+  -- Assign each color value to its global editor variable
+  for number, color in ipairs(colors) do
+    vim.g[number] = color
+  end
 
   return
 end
@@ -65,7 +51,7 @@ local function apply(settings)
   local groups = require('mine-shaft.groups').load(settings)
 
   for group, setting in pairs(groups) do
-    nvim_set_hl(0, group, setting)
+    vim.api.nvim_set_hl(0, group, setting)
   end
 
   return
@@ -78,7 +64,7 @@ function M.set(options)
   -- Is the `options` parameter a table?
   if type(options) == 'table' then
     -- Merge the `defaults` and `options`
-    local_settings = tbl_deep_extend('force', defaults, options)
+    local_settings = vim.tbl_deep_extend('force', defaults, options)
   end
 
   return
@@ -95,23 +81,23 @@ function M.load()
   end
 
   -- Is another color scheme already loaded?
-  if g.colors_name then
+  if vim.g.colors_name then
     -- Remove all highlighting groups previously added by the user
-    cmd('hi clear')
+    vim.cmd('hi clear')
   end
 
   -- Can Neovim’s `:syntax` commands be called?
   if vim.fn.exists('syntax_on') then
     -- Reset all syntax highlighting to the defaults
-    cmd('syntax reset')
+    vim.cmd('syntax reset')
   end
 
   -- Make sure the terminal background is set to `dark`
-  o.background = 'dark'
+  vim.o.background = 'dark'
   -- Make sure the terminal has RGB colors enabled
-  o.termguicolors = true
+  vim.o.termguicolors = true
   -- Set the name Neovim’s uses to load the color scheme
-  g.colors_name = 'mine-shaft'
+  vim.g.colors_name = 'mine-shaft'
 
   -- The ⛏️ Mine Shaft is ready!
   apply(local_settings)

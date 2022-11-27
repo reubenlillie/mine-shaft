@@ -22,7 +22,7 @@ function M.highlight(palette)
   return {
     -- NvimTreeSymlink
     -- NvimTreeFolderName = {link = 'Directory'},
-    NvimTreeRootFolder = {link = 'Bold'},
+    NvimTreeRootFolder = {bold = true},
     NvimTreeFolderIcon = {link = 'NvimTreeFolderName'},
     -- NvimTreeFileIcon
     NvimTreeEmptyFolderName = {link = 'Comment'}, -- Directory

@@ -51,8 +51,8 @@ function M.highlight(palette)
     -- yamlFlowMappingMerge = {link = 'Special'},
 
     -- yamlMappingKeyStart = {link = 'Special'},
-    -- yamlFlowIndicator = {link = 'Special'},
-    -- yamlKeyValueDelimiter = {link = 'Special'},
+    yamlFlowIndicator = {link = 'Normal'}, -- Special
+    yamlKeyValueDelimiter = {link = 'Normal'}, -- Special
 
     -- yamlConstant = {link = 'Constant'},
 

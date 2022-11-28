@@ -21,51 +21,51 @@ function M.highlight(palette)
   -- Default arguments are commented inline
   -- @see :help highlight-groups
   return {
-    -- yamlTodo = {link = 'Todo'),
-    -- yamlComment = {link = 'Comment'),
+    -- yamlTodo = {link = 'Todo'},
+    -- yamlComment = {link = 'Comment'},
 
-    -- yamlDocumentStart = {link = 'PreProc'),
-    -- yamlDocumentEnd = {link = 'PreProc'),
+    -- yamlDocumentStart = {link = 'PreProc'},
+    -- yamlDocumentEnd = {link = 'PreProc'},
 
-    -- yamlDirectiveName = {link = 'Keyword'),
+    -- yamlDirectiveName = {link = 'Keyword'},
 
-    -- yamlTAGDirective = {link = 'yamlDirectiveName'),
-    -- yamlTagHandle = {link = 'String'),
-    -- yamlTagPrefix = {link = 'String'),
+    -- yamlTAGDirective = {link = 'yamlDirectiveName'},
+    -- yamlTagHandle = {link = 'String'},
+    -- yamlTagPrefix = {link = 'String'},
 
-    -- yamlYAMLDirective = {link = 'yamlDirectiveName'),
-    -- yamlReservedDirective = {link = 'Error'),
-    -- yamlYAMLVersion = {link = 'Number'),
+    -- yamlYAMLDirective = {link = 'yamlDirectiveName'},
+    -- yamlReservedDirective = {link = 'Error'},
+    -- yamlYAMLVersion = {link = 'Number'},
 
-    -- yamlString = {link = 'String'),
-    -- yamlFlowString = {link = 'yamlString'),
-    -- yamlFlowStringDelimiter = {link = 'yamlString'),
-    -- yamlEscape = {link = 'SpecialChar'),
-    -- yamlSingleEscape = {link = 'SpecialChar'),
+    -- yamlString = {link = 'String'},
+    -- yamlFlowString = {link = 'yamlString'},
+    -- yamlFlowStringDelimiter = {link = 'yamlString'},
+    -- yamlEscape = {link = 'SpecialChar'},
+    -- yamlSingleEscape = {link = 'SpecialChar'},
 
-    -- yamlBlockCollectionItemStart = {link = 'Label'),
-    -- yamlBlockMappingKey = {link = 'Identifier'),
-    -- yamlBlockMappingMerge = {link = 'Special'),
+    -- yamlBlockCollectionItemStart = {link = 'Label'},
+    -- yamlBlockMappingKey = {link = 'Identifier'},
+    -- yamlBlockMappingMerge = {link = 'Special'},
 
-    -- yamlFlowMappingKey = {link = 'Identifier'),
-    -- yamlFlowMappingMerge = {link = 'Special'),
+    -- yamlFlowMappingKey = {link = 'Identifier'},
+    -- yamlFlowMappingMerge = {link = 'Special'},
 
-    -- yamlMappingKeyStart = {link = 'Special'),
-    -- yamlFlowIndicator = {link = 'Special'),
-    -- yamlKeyValueDelimiter = {link = 'Special'),
+    -- yamlMappingKeyStart = {link = 'Special'},
+    -- yamlFlowIndicator = {link = 'Special'},
+    -- yamlKeyValueDelimiter = {link = 'Special'},
 
-    -- yamlConstant = {link = 'Constant'),
+    -- yamlConstant = {link = 'Constant'},
 
-    -- yamlNull = {link = 'yamlConstant'),
-    -- yamlBool = {link = 'yamlConstant'),
+    -- yamlNull = {link = 'yamlConstant'},
+    -- yamlBool = {link = 'yamlConstant'},
 
-    -- yamlAnchor = {link = 'Type'),
-    -- yamlAlias = {link = 'Type'),
-    -- yamlNodeTag = {link = 'Type'),
+    -- yamlAnchor = {link = 'Type'},
+    -- yamlAlias = {link = 'Type'},
+    -- yamlNodeTag = {link = 'Type'},
 
-    -- yamlInteger = {link = 'Number'),
-    -- yamlFloat = {link = 'Float'),
-    -- yamlTimestamp = {link = 'Number'),
+    -- yamlInteger = {link = 'Number'},
+    -- yamlFloat = {link = 'Float'},
+    -- yamlTimestamp = {link = 'Number'},
   }
 end
 

@@ -37,7 +37,7 @@ function M.highlight(palette)
     -- yamlReservedDirective = {link = 'Error'},
     -- yamlYAMLVersion = {link = 'Number'},
 
-    -- yamlString = {link = 'String'},
+    yamlString = {link = 'javaScriptStringS'}, -- String
     -- yamlFlowString = {link = 'yamlString'},
     -- yamlFlowStringDelimiter = {link = 'yamlString'},
     -- yamlEscape = {link = 'SpecialChar'},

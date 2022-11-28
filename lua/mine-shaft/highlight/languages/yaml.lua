@@ -43,7 +43,7 @@ function M.highlight(palette)
     -- yamlEscape = {link = 'SpecialChar'},
     -- yamlSingleEscape = {link = 'SpecialChar'},
 
-    -- yamlBlockCollectionItemStart = {link = 'Label'},
+    yamlBlockCollectionItemStart = {link = 'Normal'}, -- Label
     yamlBlockMappingKey = {link = 'Constant'}, -- Identifier
     -- yamlBlockMappingMerge = {link = 'Special'},
 

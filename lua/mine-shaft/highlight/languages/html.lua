@@ -64,7 +64,7 @@ function M.highlight(palette)
     -- htmlPreAttr = {link = 'String'},
     -- htmlPreProcAttrName = {link = 'PreProc'},
     -- htmlPreProcAttrError = {link = 'Error'},
-    -- htmlString = {link = 'String'},
+    htmlString = {link = 'Constant'}, -- String
     -- htmlStatement = {link = 'Statement'},
     -- htmlComment = {link = 'Comment'},
     -- htmlCommentNested = {link = 'htmlError'},

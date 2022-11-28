@@ -23,7 +23,7 @@ function M.highlight(palette)
     Comment = {fg = p.lightGray, italic = true}, -- (preffered) any comment
 
     Constant = {fg = p.yellow}, -- (preferred) any constant
-    String = {link = 'Constant'}, -- a string constant: "this is a string"
+    String = {fg = p.green}, -- a string constant: "this is a string"
     Character = {link = 'Constant'}, -- a character constant: 'c', '\n'
     Number = {fg = p.blue}, -- a number constant: 234, 0xff
     Boolean = {link = 'Special'}, -- a boolean constant: TRUE, false

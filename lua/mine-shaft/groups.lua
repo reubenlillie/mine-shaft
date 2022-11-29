@@ -16,6 +16,7 @@ M.languages = {
   'css',
   'html',
   'javascript',
+  'json',
   'lua',
   'markdown',
   'yaml',

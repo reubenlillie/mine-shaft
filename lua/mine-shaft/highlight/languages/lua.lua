@@ -17,7 +17,7 @@ function M.highlight(palette)
   local p = palette
 
   -- Highlight groups
-  -- Line breaks match {@link https://github.com/neovim/neovim/blob/master/runtime/syntax/css.vim Neovim’s default syntax file} on GitHub
+  -- Line breaks match {@link https://github.com/neovim/neovim/blob/master/runtime/syntax/lua.vim Neovim’s default syntax file} on GitHub
   -- Default arguments are commented inline
   -- @see :help highlight-groups
   return {
@@ -38,7 +38,7 @@ function M.highlight(palette)
     -- luaComment = {link = 'Comment'},
     -- luaCommentDelimiter = {link = 'luaComment'},
     -- luaTodo = {link = 'Todo'},
-    luaTable = {link = 'Normal'}, -- Structure
+    luaTable = {link = 'javaScriptBraces'}, -- Structure
     -- luaError = {link = 'Error'},
     -- luaParenError = {link = 'Error'},
     -- luaSpecial = {link = 'SpecialChar'},

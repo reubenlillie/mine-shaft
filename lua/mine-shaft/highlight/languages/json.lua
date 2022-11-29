@@ -42,6 +42,7 @@ function M.highlight(palette)
     -- jsonQuote = {link = 'Quote'},
     -- jsonNoise = {link = 'Noise'},
 
+    -- NB, The colon (:) separator in JSON "key": "value" pairs
     jsonKeywordMatch = {link = 'Identifier'},
   }
 end

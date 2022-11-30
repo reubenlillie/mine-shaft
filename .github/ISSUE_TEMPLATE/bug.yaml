@@ -1,0 +1,48 @@
+name: I think I found a bug 🐛!
+description: Are you having a problem with Mine Shaft? Let’s talk about it.
+title: 'Possible bug 🐛 with '
+labels: ['bug 🐛']
+assignees: 'reubenlillie'
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for digging into Mine Shaft ⛏️!
+- type: textarea
+  id: incident
+  attributes:
+    label: What happened 💔?
+    description: In a sentence or two, what went wrong?
+  validations:
+    required: true
+- type: textarea
+  id: expectation
+  attributes:
+    label: What should have happened ❤️‍🩹?
+    description: In a sentence or two, what did you expect instead?
+  validations:
+    required: true
+- type: dropdown
+  id: version
+  attributes:
+    label: Which version 🏷️ of Mine Shaft are you using?
+    options:
+      - 0.1.0
+      - 0.1.1 (Default)
+      - 1.0.0 (Edge)
+  validations:
+    required: true
+- type: textarea
+    id: logs
+    attributes:
+      label: Error log 🧾🚫🪵
+      description: Please paste any log output from your computer here. This field will automatically be formatted into code, so you won’t need any backticks.
+      render: shell
+- type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct 🔑
+      description: By submitting this issue, you agree to follow the [Code of Conduct](https://github.com/reubenlillie/mine-shaft/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow the Code of Conduct
+          required: true

@@ -12,7 +12,7 @@ body:
   id: incident
   attributes:
     label: What happened 💔?
-    description: In a sentence or two, what went wrong?
+    description: In a sentence or two, what went wrong? Also, please share any screenshots 📸 of the issue here!
   validations:
     required: true
 - type: textarea

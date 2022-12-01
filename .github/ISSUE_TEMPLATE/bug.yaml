@@ -38,11 +38,4 @@ body:
       label: Error log 🧾🚫🪵
       description: Please paste any log output from your computer here. This field will automatically be formatted into code, so you won’t need any backticks.
       render: shell
-- type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct 🔑
-      description: By submitting this issue, you agree to follow the [Code of Conduct](https://github.com/reubenlillie/mine-shaft/blob/main/CODE_OF_CONDUCT.md)
-      options:
-        - label: I agree to follow the Code of Conduct
-          required: true
+      required: false

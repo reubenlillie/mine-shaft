@@ -12,7 +12,7 @@ body:
   id: context
   attributes:
     label: Is your feature request related to a problem 🤕?
-    description: In a sentence or two, what problem would you’re feature request address? For example, “I’m frustrated when  . . .”
+    description: In a sentence or two, what problem would your feature request address? For example, “I’m frustrated when  . . .”
   validations:
     required: false
 - type: textarea

@@ -2,7 +2,7 @@ name: I have an idea 💡!
 description: What do you wish Mine Shaft did? Please share it!
 title: '[Feature Request 💡]: . . .'
 labels: ['enhancement 💡']
-assignees: 'reubenlillie'
+assignees: ''
 body:
 - type: markdown
   attributes:

@@ -1,7 +1,7 @@
 name: I could use more documentation 📑!
 description: What do you think could be documented better in Mine Shaft?
 title: '[Documentation 📑]: . . .'
-labels: ['documenation 📑']
+labels: ['documentation 📑']
 body:
 - type: markdown
   attributes:

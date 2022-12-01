@@ -1,0 +1,16 @@
+name: I could use more documentation 📑!
+description: What do you think could be documented better in Mine Shaft?
+title: '[Documentation 📑]: . . .'
+labels: ['documenation 📑']
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for digging into Mine Shaft ⛏️!
+- type: textarea
+  id: documentation
+  attributes:
+    label: What kind of documentation did you have in mind 🍏🍎?
+    description: Are you talking about editing existing documentation or writing something new?
+  validations:
+    required: true

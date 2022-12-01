@@ -1,0 +1,31 @@
+name: I have an idea 💡!
+description: What do you wish Mine Shaft did? Please share it!
+title: '[Feature Request 💡]: . . .'
+labels: ['enhancement 💡']
+assignees: 'reubenlillie'
+body:
+- type: markdown
+  attributes:
+    value: |
+      Thanks for digging into Mine Shaft ⛏️!
+- type: textarea
+  id: context
+  attributes:
+    label: Is your feature request related to a problem 🤕?
+    description: In a sentence or two, what problem would you’re feature request address? For example, “I’m frustrated when  . . .”
+  validations:
+    required: false
+- type: textarea
+  id: idea
+  attributes:
+    label: What’s your idea 💭?
+    description: In a sentence or two, how could Mine Shaft be better?
+  validations:
+    required: true
+- type: textarea
+  id: more
+  attributes:
+    label: Anything else ☝️?
+    description: Do you have anything moree you’d like to share to help make your request happen?
+    validations:
+    required: false

@@ -7,26 +7,14 @@
 -- @see :help group-names
 -- @see :help highlight-groups
 
+-- Import supported programming language names
+local languages = require('mine-shaft.languages').languages
+
+-- Import supported plugin module names
+local modules = require('mine-shaft.modules').modules
+
 -- Declare a local table to return public module functions
 local M = {}
-
--- Declare a table of names of programming languages with highlighting files
--- @see lua/mine-shaft/highlight/languages
-M.languages = {
-  'css',
-  'html',
-  'javascript',
-  'json',
-  'lua',
-  'markdown',
-  'yaml',
-}
-
--- Declare a table of names of plugins with highlighting files
--- @see lua/mine-shaft/highlight/plugins
-M.plugins = {
-  'nvim-tree',
-}
 
 -- Defines 🖍️ highlight groups
 -- @param {table} settings Includes a color palette table
@@ -46,13 +34,13 @@ function M.load(settings)
   local groups = vim.tbl_deep_extend('force', editor, syntax)
 
   -- Import and merge highlight groups for specific programming languages
-  for _, language in ipairs(M.languages) do
+  for _, language in ipairs(languages) do
     groups = vim.tbl_deep_extend('force', groups, require(path .. 'languages.' .. language).highlight(palette))
   end
 
-  -- Import and merge highlight groups for supported plugins
-  for _, plugin in ipairs(M.plugins) do
-    groups = vim.tbl_deep_extend('force', groups, require(path .. 'plugins.' .. plugin).highlight(palette))
+  -- Import and merge highlight groups for supported plugin modules
+  for _, module in ipairs(modules) do
+    groups = vim.tbl_deep_extend('force', groups, require(path .. 'modules.' .. module).highlight(palette))
   end
 
   return groups

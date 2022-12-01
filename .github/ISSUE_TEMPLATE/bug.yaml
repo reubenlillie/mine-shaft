@@ -33,9 +33,9 @@ body:
   validations:
     required: true
 - type: textarea
-    id: logs
-    attributes:
-      label: Error log 🧾🚫🪵
-      description: Please paste any log output from your computer here. This field will automatically be formatted into code, so you won’t need any backticks.
-      render: shell
-      required: false
+  id: logs
+  attributes:
+    label: Error log 🧾🚫🪵
+    description: Please paste any log output from your computer here. This field will automatically be formatted into code, so you won’t need any backticks.
+    render: shell
+    required: false

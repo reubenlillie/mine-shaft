@@ -2,7 +2,6 @@ name: I think I found a bug 🐛!
 description: Are you having a problem with Mine Shaft? Let’s talk about it.
 title: '[Bug 🐛]: . . .'
 labels: ['bug 🐛']
-assignees: ''
 body:
 - type: markdown
   attributes:
@@ -38,4 +37,3 @@ body:
     label: Error log 🧾🚫🪵
     description: Please paste any log output from your computer here. This field will automatically be formatted into code, so you won’t need any backticks.
     render: shell
-    required: false

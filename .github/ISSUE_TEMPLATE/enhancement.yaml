@@ -2,7 +2,6 @@ name: I have an idea 💡!
 description: What do you wish Mine Shaft did? Please share it!
 title: '[Feature Request 💡]: . . .'
 labels: ['enhancement 💡']
-assignees: ''
 body:
 - type: markdown
   attributes:
@@ -13,8 +12,6 @@ body:
   attributes:
     label: Is your feature request related to a problem 🤕?
     description: In a sentence or two, what problem would your feature request address? For example, “I’m frustrated when  . . .”
-  validations:
-    required: false
 - type: textarea
   id: idea
   attributes:
@@ -27,5 +24,3 @@ body:
   attributes:
     label: Anything else 🤔?
     description: Do you have anything moree you’d like to share to help make your request happen?
-    validations:
-    required: false

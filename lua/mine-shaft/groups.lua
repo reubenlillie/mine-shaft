@@ -1,174 +1,49 @@
--- Defines highlight groups
-local function setup(configs)
-  local colors = configs.colors
+-- @file Assigns gui arguments for syntax and 🖍️ highlight groups
+-- @author Reuben L. Lillie <https://zirk.us/@reubenlillie>
+-- @since 0.1.0
+-- @since 1.0.0 Reformat module to return a local table
+--              Deprecate local function setup()
+--              Add M.load()
+-- @see :help group-names
+-- @see :help highlight-groups
 
-  return {
-    -- :help group-name
-    Comment = {fg = colors.lightGray},
-    Constant = {fg = colors.yellow},
-    Identifier = {fg = colors.blue},
-    Statement = {fg = colors.red},
-    PreProc = {fg = colors.purple},
-    Type = {fg = colors.green},
-    Special = {fg = colors.pink},
-    Underlined = {underline = true},
-    Ignore = {fg = colors.darkGray, bg = colors.lightGray, italic = true},
-    Error = {fg = colors.darkGray, bg = colors.red},
-    Todo = {fg = colors.darkGray, bg = colors.blue},
+-- Import supported programming language names
+local languages = require('mine-shaft.languages').languages
 
-    -- :help highlight-groups
-    ColorColumn = {reverse = true},
-    Conceal = {fg = colors.lightGray},
-    CurSearch = {fg = colors.darkGray, bg = colors.green, bold = true},
-    Cursor = {reverse = true},
-    lCursor = {link = 'Cursor'},
-    CursorIM = {link = 'Cursor'},
-    CursorColumn = {link = 'CursorLine'},
-    CursorLine = {fg = 'NONE', bg = colors.black},
-    Directory = {link = 'Identifier'},
-    DiffAdd = {fg = colors.green},
-    DiffChange = {fg = colors.yellow},
-    DiffDelete = {fg = colors.red},
-    DiffText = {fg = colors.lightGray},
-    EndOfBuffer = {link = 'Comment'},
-    ErrorMsg = {link = 'Error'},
-    WinSeparator = {link = 'Ignore'},
-    Folded = {link = 'Ignore'},
-    FoldColumn = {link = 'Folded'},
-    SignColumn = {link = 'Normal'},
-    IncSearch = {fg = colors.darkGray, bg = colors.yellow, bold = true},
-    Substitute = {link = 'Sign'},
-    LineNr = {fg = colors.white, bg = colors.black, bold = true},
-    LineNrAbove = {link = 'Comment'},
-    LineNrBelow = {link = 'LineNrAbove'},
-    CursorLineNr = {link = 'LineNr'},
-    CursorLineFold = {link = 'Folded'},
-    CursorLineSign = {link = 'SignColumn'},
-    MatchParen = {reverse = true},
-    ModeMsg = {fg = colors.white},
-    MsgArea = {fg = colors.white},
-    MsgSeparator = {fg = colors.white},
-    MoreMsg = {fg = colors.white},
-    NonText = {fg = colors.white},
-    Normal = {fg = colors.white, bg = colors.darkGray},
-    Pmenu = {link = 'CursorLine'},
-    PmenuSel = {reverse = true, bold = true},
-    PmenuSbar = {link = 'CursorLine'},
-    PmenuThumb = {bg = colors.yellow},
-    PopupNotification = {link = 'Normal'},
-    Question = {link = 'MoreMsg'},
-    QuickFixLine = {link = 'CursorLine'},
-    Search = {link = 'IncSearch'},
-    SpecialKey = {link = 'Special', bold = true, italic = true},
-    SpellBad = {fg = colors.red, underline = true},
-    SpellCap = {link = 'SpellBad'},
-    SpellLocal = {link = 'SpellBad'},
-    SpellRare = {link = 'SpellBad'},
-    StatusLine = {reverse = true, bold = true},
-    StatusLineNC = {link = 'Ignore'},
-    TabLine = {link = 'Ignore'},
-    TabLineFill = {link = 'Normal'},
-    TabLineSel = {link = 'Normal'},
-    Title = {link = 'Normal'},
-    Visual = {link = 'CursorLine'},
-    VisualNOS = {link = 'Visual'},
-    WarningMsg = {fg = colors.darkGray, bg = colors.yellow},
-    Whitespace = {link = 'PreProc', italic = true},
-    WildMenu = {fg = colors.darkGray, bg = colors.green},
-    WinBar = {link = 'Normal'},
-    WinBarNC = {link = 'Comment'},
-    Menu = {link = 'CursorLine'},
-    Scrollbar = {link = 'PmenuSbar'},
-    Tooltip = {link = 'CursorLine'},
+-- Import supported plugin module names
+local modules = require('mine-shaft.modules').modules
 
-    -- HTML
-    htmlArg = {link = 'Type'},
-    htmlBold = {bold = true},
-    htmlEndTag = {link = 'htmlTag'},
-    htmlH1 = {link = 'htmlBold'},
-    htmlH2 = {link = 'htmlH1'},
-    htmlH3 = {link = 'htmlH1'},
-    htmlH4 = {link = 'htmlH1'},
-    htmlH5 = {link = 'htmlH1'},
-    htmlH6 = {link = 'htmlH1'},
-    htmlItalic = {italic = true},
-    htmlLink = {underline = true},
-    htmlSpecialChar = {link = 'Special'},
-    htmlSpecialTagName = {link = 'Statement'},
-    htmlTag = {fg = colors.white, bg = 'NONE'},
-    htmlTagN = {link = 'Statement'},
-    htmlTagName = {link = 'Statement'},
-    htmlTitle = {link = 'Special'},
+-- Declare a local table to return public module functions
+local M = {}
 
-    -- Markdown
-    markdownCodeBlock = {link = 'Type'},
-    markdownCodeDelimiter = {link = 'Type'},
-    markdownH1 = {link = 'htmlBold'},
-    markdownH1Delimiter = {link = 'Identifier'},
-    markdownH2 = {link = 'htmlH1'},
-    markdownH2Delimiter = {link = 'markdownH1Delimiter'},
-    markdownH3 = {link = 'htmlH1'},
-    markdownH3Delimiter = {link = 'markdownH1Delimiter'},
-    markdownH4 = {link = 'htmlH1'},
-    markdownH4Delimiter = {link = 'markdownH1Delimiter'},
-    markdownH5 = {link = 'htmlH1'},
-    markdownH5Delimiter = {link = 'markdownH1Delimiter'},
-    markdownH6 = {link = 'htmlH1'},
-    markdownH6Delimiter = {link = 'markdownH1Delimiter'},
-    markdownYamlHead = {link = 'Normal'},
+-- Defines 🖍️ highlight groups
+-- @param {table} settings Includes a color palette table
+-- @return {table} Merged table of highlight groups tables across the color scheme
+function M.load(settings)
+  -- Access the color palette table
+  local palette = settings.palette
 
-    -- YAML
-    yamlBlockMappingKey = {link = 'Constant'},
-    yamlDocumentStart = {link = 'Normal'},
-    yamlFlowIndicator = {link = 'Normal'},
-    yamlFlowString = {link = 'Type'},
-    yamlKeyValueDelimiter = {link = 'Normal'},
+  -- The file path for highlight groups
+  local path = 'mine-shaft.highlight.'
 
-    -- CSS
-    cssAtKeyword = {link = 'Special'},
-    cssBraces = {link = 'Comment'},
+  -- Import highlight arguments for Neovim’s built-in highlight groups
+  local editor = require(path .. 'editor').highlight(palette)
+  local syntax = require(path .. 'syntax').highlight(palette)
 
-    -- JavaScript
-    javaScriptBoolean = {link = 'Special'},
-    javaScriptBraces = {link = 'PreProc'},
-    javaScriptConditional = {link = 'Constant'},
-    javaScriptConstant = {link = 'Statement'},
-    javaScriptEmbed = {fg = colors.white, bold = true},
-    javaScriptException = {link = 'Statement'},
-    javaScriptGlobal = {link = 'Constant'},
-    javaScriptLabel = {link = 'Statement'},
-    javaScriptMember = {link = 'Constant'},
-    javaScriptNull = {link = 'Special'},
-    javaScriptNumber = {link = 'Identifier'},
-    javaScriptOperator = {link = 'Identifier'},
-    javaScriptParens = {link = 'PreProc'},
-    javaScriptRepeat = {link = 'Statement'},
-    javaScriptReserved = {link = 'Special'},
-    javaScriptSpecial = {link = 'Type'},
-    javaScriptStatement = {link = 'Constant'},
-    javaScriptStringD = {link = 'Type'},
-    javaScriptStringS = {link = 'Type'},
-    javaScriptStringT = {link = 'Type'},
+  -- Merge imported built-in highlight groups
+  local groups = vim.tbl_deep_extend('force', editor, syntax)
 
-    -- NvimTree
-    NvimTreeCursorLine = {link = 'CursorLine'},
-    NvimTreeEmptyFolderName = {link = 'Comment'},
-    NvimTreeEndOfBuffer = {link = 'EndOfBuffer'},
-    NvimTreeFolderIcon = {fg = colors.blue},
-    NvimTreeFolderName = {fg = colors.blue},
-    NvimTreeGitDirty = {fg = colors.red},
-    NvimTreeGitNew = {fg = colors.yellow},
-    NvimTreeImageFile = {link = 'Special'},
-    NvimTreeIn = {bg = colors.green},
-    NvimTreeIndentMarker = {fg = colors.lightGray},
-    NvimTreeNormal = {link = 'Normal'},
-    NvimTreeOpenedFolderName = {fg = colors.blue, italic = true},
-    NvimTreeRootFolder = {fg = colors.white, bold = true},
-    NvimTreeSpecialFile = {link = 'Special', underline = true},
-    NvimTreeVertSplit = {link = 'Comment'},
-  }
+  -- Import and merge highlight groups for specific programming languages
+  for _, language in ipairs(languages) do
+    groups = vim.tbl_deep_extend('force', groups, require(path .. 'languages.' .. language).highlight(palette))
+  end
+
+  -- Import and merge highlight groups for supported plugin modules
+  for _, module in ipairs(modules) do
+    groups = vim.tbl_deep_extend('force', groups, require(path .. 'modules.' .. module).highlight(palette))
+  end
+
+  return groups
 end
 
-return {
-  setup = setup,
-}
+return M

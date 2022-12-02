@@ -1,87 +1,120 @@
--- Initializes the color scheme
+-- @file Initializes the ⛏️ Mine Shaft color scheme
+-- @author Reuben L. Lillie <https://zirk.us/@reubenlillie>
+-- @since 0.1.0
+-- @since 1.0.0 Reformat module to return a local table
+--              Add metadata
+--              Refactor apply_term_colors()
 
--- Shorten function calls
-local o = vim.o
-local g = vim.g
-local cmd = vim.cmd
-local nvim_set_hl = vim.api.nvim_set_hl
-local tbl_deep_extend = vim.tbl_deep_extend
-
--- Define dault configuration
-local DEFAULT_CONFIG = {
-   colors = require('mine-shaft.palette'),
+-- Declare a local table to return public module functions
+local M = {
+  _VERSION     = '1.0.0',
+  _DESCRIPTION = 'An accessible color scheme for Neovim',
+  _URL         = 'https://github.com/reubenlillie/mine-shaft',
+  _LICENSE     = 'MIT'
 }
 
--- Set ANSI colors to match the palette
-local function apply_term_colors(colors)
-   g.terminal_color_0 = colors.darkGray
-   g.terminal_color_1 = colors.red
-   g.terminal_color_2 = colors.green
-   g.terminal_color_3 = colors.yellow
-   g.terminal_color_4 = colors.blue
-   g.terminal_color_5 = colors.purple
-   g.terminal_color_6 = colors.blue
-   g.terminal_color_7 = colors.white
-   g.terminal_color_8 = colors.lightGray
-   g.terminal_color_9 = colors.red
-   g.terminal_color_10 = colors.green
-   g.terminal_color_11 = colors.yellow
-   g.terminal_color_12 = colors.blue
-   g.terminal_color_13 = colors.pink
-   g.terminal_color_14 = colors.blue
-   g.terminal_color_15 = colors.white
-   g.terminal_color_background = colors.darkGray
-   g.terminal_color_foreground = colors.white
+-- Define default color scheme settings
+local defaults = {
+  palette = require('mine-shaft.palette').palette,
+}
+
+-- Set the color number arguments used for highlighting in the terminal
+-- @param {table} palette Colors to assign to the terminal
+-- @return {void}
+-- @since 0.1.0
+-- @since 0.1.1 Change `colors.cyan` to `colors.blue`
+-- @since 1.0.0 Move cterm-colors to lua/mine-shaft/highlight/terminal.lua
+-- @see :help ctermfg
+-- @see :help termguicolors
+-- @see :help cterm-colors
+local function apply_term_colors(palette)
+  -- Import cterm color assignments
+  local colors = require('mine-shaft.highlight.terminal').highlight(palette)
+
+  -- Assign each color value to its global editor variable
+  for number, color in ipairs(colors) do
+    vim.g[number] = color
+  end
+
+  return
 end
 
--- Apply color scheme
-local function apply(configs)
-  local colors = configs.colors
-  apply_term_colors(colors)
-  local groups = require('mine-shaft.groups').setup(configs)
+-- Use default settings initially
+local local_settings = defaults
 
-   for group, setting in pairs(groups) do
-      nvim_set_hl(0, group, setting)
-   end
+-- Apply color scheme settings
+-- @param {table} settings Merged defaults and options
+-- @return {void}
+local function apply(settings)
+  local palette = settings.palette
+  apply_term_colors(palette)
+  local groups = require('mine-shaft.groups').load(settings)
+
+  for group, setting in pairs(groups) do
+    vim.api.nvim_set_hl(0, group, setting)
+  end
+
+  return
 end
 
--- Use default configuration
-local local_configs = DEFAULT_CONFIG
+-- Call this funtion to set any `options` in place of `defaults`
+-- @param {table} options Passed by the user
+-- @return {void}
+function M.set(options)
+  -- Is the `options` parameter a table?
+  if type(options) == 'table' then
+    -- Merge the `defaults` and `options`
+    local_settings = vim.tbl_deep_extend('force', defaults, options)
+  end
 
--- Setup color scheme
-local function setup(configs)
-   if type(configs) == 'table' then
-      local_configs = tbl_deep_extend('force', DEFAULT_CONFIG, configs) --[[@as DefaultConfig]]
-   end
+  return
 end
 
 -- Load color scheme
-local function load()
-   if vim.version().minor < 7 then
-      vim.notify_once('mine-shaft/lua/mine-shaft/init.lua: you must use neovim 0.8.0 or higher')
-      return
-   end
+-- @return {void}
+function M.load()
+  -- Is the user running a version of Neovim that doesn’t support this color scheme?
+  if vim.version().minor < 7 then
+    -- Alert the user to use a newer version of Neovim
+    vim.notify_once('⚠️  WARNING: mine-shaft/lua/mine-shaft/init.lua: 🥺 It looks like your version of Neovim is too old.\nThe ⛏️ Mine Shaft color scheme only works on Neovim 0.8.0 or higher.\nTry updating or reinstalling Neovim.\nFor instructions, visit: https://github.com/neovim/neovim/wiki/Installing-Neovim')
+    return
+  end
 
-   -- Reset colors
-   if g.colors_name then
-      cmd('hi clear')
-   end
+  -- Is another color scheme already loaded?
+  if vim.g.colors_name then
+    -- Remove all highlighting groups previously added by the user
+    vim.cmd('hi clear')
+  end
 
-   -- Restore default syntax highlighting
-   if vim.fn.exists('syntax_on') then
-      cmd('syntax reset')
-   end
+  -- Can Neovim’s `:syntax` commands be called?
+  if vim.fn.exists('syntax_on') then
+    -- Reset all syntax highlighting to the defaults
+    vim.cmd('syntax reset')
+  end
 
-   o.background = 'dark'
-   o.termguicolors = true
-   g.colors_name = 'mine-shaft'
+  -- Make sure the terminal background is set to `dark`
+  vim.o.background = 'dark'
+  -- Make sure the terminal has RGB colors enabled
+  vim.o.termguicolors = true
+  -- Set the name Neovim’s uses to load the color scheme
+  vim.g.colors_name = 'mine-shaft'
 
-   apply(local_configs)
+  -- The ⛏️ Mine Shaft is ready!
+  apply(local_settings)
+
+  return
 end
 
-return {
-   load = load,
-   setup = setup,
-   configs = function() return local_configs end,
-   colors = function() return local_configs.colors end,
-}
+-- Make the settings public
+-- @return {table} The merged defaults and any optional settings
+function M.settings()
+  return local_settings
+end
+
+-- Make the color palette public
+-- @return {table} The merged default color palette and any optional additions or subsitutions
+function M.palette()
+  return local_settings.palette
+end
+
+return M

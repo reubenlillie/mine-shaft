@@ -1,2 +1,2 @@
--- Load so Neovim recognizes the color scheme
+-- Load so Neovim recognizes ⛏️ Mine Shaft as a color scheme
 require('mine-shaft').load()
